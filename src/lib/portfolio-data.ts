@@ -1,3 +1,5 @@
+export type ProjectTag = "AI" | "Full-Stack" | "Data Science";
+
 export type Project = {
   slug: string;
   title: string;
@@ -9,6 +11,7 @@ export type Project = {
   highlights: string[];
   accent: string;
   icon: string;
+  tags: ProjectTag[];
 };
 
 export const projects: Project[] = [
@@ -30,6 +33,7 @@ export const projects: Project[] = [
     ],
     accent: "from-indigo-500 to-cyan-400",
     icon: "🔄",
+    tags: ["AI", "Full-Stack"],
   },
   {
     slug: "aqi-core",
@@ -49,6 +53,7 @@ export const projects: Project[] = [
     ],
     accent: "from-emerald-400 to-cyan-400",
     icon: "🌫️",
+    tags: ["Data Science", "Full-Stack"],
   },
   {
     slug: "hiresync",
@@ -68,6 +73,7 @@ export const projects: Project[] = [
     ],
     accent: "from-purple-500 to-pink-400",
     icon: "🚀",
+    tags: ["AI", "Full-Stack"],
   },
   {
     slug: "emergency-triage",
@@ -87,6 +93,7 @@ export const projects: Project[] = [
     ],
     accent: "from-red-500 to-orange-400",
     icon: "🏥",
+    tags: ["AI", "Data Science", "Full-Stack"],
   },
   {
     slug: "petpal",
@@ -106,34 +113,52 @@ export const projects: Project[] = [
     ],
     accent: "from-amber-400 to-pink-400",
     icon: "🐾",
+    tags: ["AI", "Full-Stack"],
   },
 ];
 
-export const certificates = [
-  { name: "Generative AI Engineering Mastermind", issuer: "GenAI" },
-  { name: "Oracle AI Foundation", issuer: "Oracle" },
-  { name: "AI Fundamentals", issuer: "IBM SkillsBuild" },
-  { name: "Apply AI: Analyze Customer Reviews", issuer: "IBM SkillsBuild" },
-  { name: "Introduction to Modern AI", issuer: "IBM SkillsBuild" },
-  { name: "Cybersecurity Essentials", issuer: "Cisco" },
-  { name: "Networking Basics", issuer: "Cisco" },
-  { name: "Programming Essentials in C (CLA)", issuer: "Cisco / OpenEDG" },
-  { name: "AI-ML Virtual Internship", issuer: "AICTE / EduSkills" },
-  { name: "React Bootcamp", issuer: "Bootcamp" },
-  { name: "Generative AI Certificate", issuer: "Workshop" },
-  { name: "Aptitude, Soft & Technical Skills Program", issuer: "SAKEC" },
-  { name: "Hackathon Participant Certificates ×4", issuer: "Various" },
+export const PROJECT_TAGS: ProjectTag[] = ["AI", "Full-Stack", "Data Science"];
+
+// Each cert links to its real PDF in /public/certificates/
+export type Certificate = { name: string; issuer: string; file: string; year?: string };
+
+const C = "/certificates/";
+export const certificates: Certificate[] = [
+  { name: "Generative AI Engineering Mastermind", issuer: "GenAI Mastermind", file: C + "Parthi_Gadher_GENAI ENGINEERING MASTERMIND.pdf" },
+  { name: "Oracle AI Foundation", issuer: "Oracle", file: C + "Oracle AI foundation Certificate.pdf" },
+  { name: "AI Fundamentals", issuer: "IBM SkillsBuild", file: C + "AI_Fundamentals_with_IBM_SkillsBuild_certificate_parthi-17884-sakec-ac-in_0299ecf0-f71b-417c-8062-35d243a70b3b.pdf" },
+  { name: "Apply AI: Analyze Customer Reviews", issuer: "IBM SkillsBuild", file: C + "Apply_AI-_Analyze_Customer_Reviews_certificate_parthi-17884-sakec-ac-in_630342ac-171f-4a3a-8bcf-e45249b74c48.pdf" },
+  { name: "Introduction to Modern AI", issuer: "IBM SkillsBuild", file: C + "Introduction_to_Modern_AI_certificate_parthi-17884-sakec-ac-in_4d540de7-e00c-4702-b2d6-017903d586b5.pdf" },
+  { name: "Cybersecurity Essentials", issuer: "Cisco", file: C + "Cybersecurity_Essentials_certificate_parthi-17884-sakec-ac-in_66a9a251-0aa2-493d-9e2f-049a72225da7.pdf" },
+  { name: "Networking Basics", issuer: "Cisco", file: C + "Networking_Basics_certificate_parthi-17884-sakec-ac-in_356d1182-4dd0-4349-b121-4f0cc74950b8.pdf" },
+  { name: "Programming Essentials in C (CLA)", issuer: "Cisco / OpenEDG", file: C + "Partner-_CLA_-_Programming_Essentials_in_C_certificate_parthi-17884-sakec-ac-in_04508687-555b-4da2-9406-bec10e71f0e6.pdf" },
+  { name: "AI-ML Virtual Internship", issuer: "AICTE / EduSkills", file: C + "AI-ML Virtual Internship.pdf" },
+  { name: "React Bootcamp", issuer: "Bootcamp", file: C + "React Bootcamp certificate.pdf" },
+  { name: "Generative AI Workshop", issuer: "Workshop", file: C + "GnerativeAI certificate.pdf" },
+  { name: "Aptitude, Soft & Technical Skills Program", issuer: "SAKEC", file: C + "Aptitude, Soft skills and Technical Skill Employability Enhancing Program Certificate.pdf" },
+  { name: "Hackathon Participant", issuer: "Hackathon", file: C + "PARTHI-GADHER-Participant-Certificate.pdf" },
+  { name: "Hackathon Participant II", issuer: "Hackathon", file: C + "PARTHI-GADHER-Participant-Certificate(1).pdf" },
+  { name: "Hackathon Participant III", issuer: "Hackathon", file: C + "PARTHI-GADHER-Participant-Certificate(2).pdf" },
+  { name: "Hackathon Participant IV", issuer: "Hackathon", file: C + "PARTHI-GADHER-Participant-Certificate(3).pdf" },
+  { name: "Achievement", issuer: "Recognition", file: C + "Parthi Gadher.pdf" },
+  { name: "Achievement (Honors)", issuer: "Recognition", file: C + "Parthi Gadher .pdf" },
 ];
 
 export const CERT_DRIVE =
   "https://drive.google.com/drive/folders/1fkDbLEkPEV7rc15HQPIb6fxbOiqJJmDd?usp=sharing";
 
+export const RESUME_URL = "/Parthi_Gadher_Resume.pdf";
+export const CONTACT_EMAIL = "parthigadher@gmail.com";
+export const LINKEDIN_URL = "https://www.linkedin.com/in/parthi-gadher";
+export const GITHUB_URL = "https://github.com/bobatea02-tech";
+
 export const skills = [
-  { category: "AI / ML", items: ["Gemini", "LLM Pipelines", "Prompt Engineering", "Scikit-learn", "Context Pruning"] },
-  { category: "Languages", items: ["Python", "TypeScript", "JavaScript", "C", "Java", "SQL"] },
-  { category: "Frontend", items: ["React", "TanStack", "Tailwind", "Framer Motion", "Vite"] },
-  { category: "Backend", items: ["FastAPI", "Node.js", "REST", "WebSockets", "Docker"] },
-  { category: "Data & Cloud", items: ["PostgreSQL", "OpenWeather API", "Vercel", "Render", "Cloudflare"] },
+  { category: "AI / ML", level: 92, items: ["Gemini", "LLM Pipelines", "RAG", "Prompt Engineering", "Context Pruning", "Scikit-learn", "Vector DBs"] },
+  { category: "Languages", level: 88, items: ["Python", "TypeScript", "JavaScript", "C", "Java", "SQL"] },
+  { category: "Frontend", level: 85, items: ["React", "TanStack", "Next.js", "Tailwind", "Framer Motion", "Vite"] },
+  { category: "Backend", level: 82, items: ["FastAPI", "Node.js", "REST", "WebSockets", "Docker", "Auth"] },
+  { category: "Data & Cloud", level: 78, items: ["PostgreSQL", "Supabase", "Vercel", "Render", "Cloudflare", "OpenWeather API"] },
+  { category: "Tools", level: 86, items: ["Git", "GitHub Actions", "Postman", "Figma", "VS Code", "Linux"] },
 ];
 
 export const timeline = [
