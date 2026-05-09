@@ -110,4 +110,71 @@
     100% { box-shadow: 0 0 0 24px oklch(0.78 0.18 195 / 0%); }
   }
   .pulse-ring { animation: pulse-ring 2.4s cubic-bezier(0.4,0,0.6,1) infinite; }
+
+  /* underline link animation */
+  .story-link {
+    position: relative;
+    display: inline-block;
+  }
+  .story-link::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: -2px;
+    width: 100%; height: 1px;
+    background: linear-gradient(90deg, var(--neon), var(--neon-2));
+    transform: scaleX(0); transform-origin: right;
+    transition: transform 0.35s cubic-bezier(.65,.05,.36,1);
+  }
+  .story-link:hover::after { transform: scaleX(1); transform-origin: left; }
+
+  /* tilt-on-hover card */
+  .tilt-card { transition: transform 0.4s cubic-bezier(.2,.8,.2,1), box-shadow 0.4s; transform-style: preserve-3d; }
+  .tilt-card:hover { transform: translateY(-6px) rotateX(2deg) rotateY(-2deg); }
+
+  /* gradient sweeping border */
+  .gradient-border { position: relative; isolation: isolate; }
+  .gradient-border::before {
+    content: ""; position: absolute; inset: -1px; border-radius: inherit; padding: 1px; z-index: -1;
+    background: conic-gradient(from var(--angle, 0deg), var(--neon), var(--neon-2), var(--neon));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+    opacity: 0; transition: opacity 0.35s; animation: angle-spin 4s linear infinite;
+  }
+  .gradient-border:hover::before { opacity: 1; }
+  @property --angle { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
+  @keyframes angle-spin { to { --angle: 360deg; } }
+
+  /* shimmer text */
+  @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+  .shimmer-text {
+    background: linear-gradient(90deg, var(--foreground) 0%, var(--neon) 50%, var(--foreground) 100%);
+    background-size: 200% auto; -webkit-background-clip: text; background-clip: text; color: transparent;
+    animation: shimmer 6s linear infinite;
+  }
+
+  /* glitch */
+  @keyframes glitch {
+    0%,100% { text-shadow: 0 0 0 transparent; }
+    20% { text-shadow: 2px 0 var(--neon), -2px 0 var(--neon-2); }
+    40% { text-shadow: -2px 0 var(--neon), 2px 0 var(--neon-2); }
+    60% { text-shadow: 0 0 0 transparent; }
+  }
+  .hover-glitch:hover { animation: glitch 0.5s ease-in-out; }
+
+  /* slow drift orbs */
+  @keyframes orb-drift {
+    0%,100% { transform: translate(0,0) scale(1); }
+    33% { transform: translate(40px, -30px) scale(1.1); }
+    66% { transform: translate(-30px, 30px) scale(0.95); }
+  }
+  .animate-orb { animation: orb-drift 18s ease-in-out infinite; }
+
+  /* skill bar fill */
+  @keyframes bar-fill { from { width: 0; } }
+  .bar-fill { animation: bar-fill 1.4s cubic-bezier(.2,.8,.2,1) both; }
+
+  /* scanning line */
+  @keyframes scan { 0% { transform: translateY(-100%); } 100% { transform: translateY(100%); } }
+  .scan-line { animation: scan 3s linear infinite; }
 }
