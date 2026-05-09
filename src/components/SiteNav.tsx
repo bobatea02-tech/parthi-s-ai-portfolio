@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { Github, Mail } from "lucide-react";
+import { Github, Mail, Download } from "lucide-react";
+import { RESUME_URL, GITHUB_URL } from "@/lib/portfolio-data";
 
 export function SiteNav() {
   return (
@@ -10,19 +11,23 @@ export function SiteNav() {
           <span className="text-gradient font-bold">parthi.ai</span>
         </Link>
         <div className="hidden md:flex items-center gap-6 text-sm text-muted-foreground">
-          <a href="/#about" className="hover:text-primary transition">About</a>
-          <a href="/#skills" className="hover:text-primary transition">Skills</a>
-          <a href="/#projects" className="hover:text-primary transition">Projects</a>
-          <a href="/#timeline" className="hover:text-primary transition">Journey</a>
-          <a href="/#certificates" className="hover:text-primary transition">Certificates</a>
-          <a href="/#contact" className="hover:text-primary transition">Contact</a>
+          <a href="/#about" className="hover:text-primary transition story-link">About</a>
+          <a href="/#skills" className="hover:text-primary transition story-link">Skills</a>
+          <a href="/#projects" className="hover:text-primary transition story-link">Projects</a>
+          <a href="/#timeline" className="hover:text-primary transition story-link">Journey</a>
+          <a href="/#certificates" className="hover:text-primary transition story-link">Certificates</a>
+          <a href="/#contact" className="hover:text-primary transition story-link">Contact</a>
         </div>
         <div className="flex items-center gap-2">
-          <a href="https://github.com/bobatea02-tech" target="_blank" rel="noopener noreferrer"
+          <a href={RESUME_URL} download
+             className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-primary/15 border border-primary/40 text-primary text-xs font-medium hover:bg-primary hover:text-primary-foreground transition">
+            <Download className="w-3.5 h-3.5" /> Resume
+          </a>
+          <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer"
              className="p-2 rounded-md hover:bg-secondary transition" aria-label="GitHub">
             <Github className="w-4 h-4" />
           </a>
-          <a href="#contact" className="p-2 rounded-md hover:bg-secondary transition" aria-label="Email">
+          <a href="/#contact" className="p-2 rounded-md hover:bg-secondary transition" aria-label="Email">
             <Mail className="w-4 h-4" />
           </a>
         </div>
