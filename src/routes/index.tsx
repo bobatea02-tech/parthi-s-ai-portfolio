@@ -93,8 +93,6 @@ function Home() {
             className="relative flex flex-col items-center md:items-end">
             <div className="relative animate-magnetic">
               <div className="absolute -inset-6 bg-gradient-to-tr from-primary via-accent to-primary rounded-full blur-2xl opacity-40 animate-pulse animate-hue" />
-              <div className="neon-ring animate-spin-slow" />
-              <div className="absolute -inset-2 rounded-full border border-primary/40 animate-mega-ping" />
               <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden neon-border">
                 <img src={parthiPhoto} alt="Parthi Gadher" className="w-full h-full object-cover" />
               </div>
