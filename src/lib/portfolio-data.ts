@@ -149,7 +149,7 @@ export const CERT_DRIVE =
 
 export const RESUME_URL = "/Parthi_Gadher_Resume.pdf";
 export const CONTACT_EMAIL = "parthigadher@gmail.com";
-export const LINKEDIN_URL = "https://www.linkedin.com/in/parthi-gadher";
+export const LINKEDIN_URL = "https://www.linkedin.com/in/parthi-gadher-79469a362";
 export const GITHUB_URL = "https://github.com/bobatea02-tech";
 
 export const skills = [

@@ -177,4 +177,45 @@
   /* scanning line */
   @keyframes scan { 0% { transform: translateY(-100%); } 100% { transform: translateY(100%); } }
   .scan-line { animation: scan 3s linear infinite; }
+
+  /* slow conic spin halo */
+  @keyframes spin-slow { to { transform: rotate(360deg); } }
+  .animate-spin-slow { animation: spin-slow 14s linear infinite; }
+
+  /* hue cycling neon glow */
+  @keyframes hue-cycle { 0%,100% { filter: hue-rotate(0deg); } 50% { filter: hue-rotate(60deg); } }
+  .animate-hue { animation: hue-cycle 8s ease-in-out infinite; }
+
+  /* magnetic floating tilt for hero portrait */
+  @keyframes magnetic-float {
+    0%,100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-8px) rotate(0.6deg); }
+    50% { transform: translateY(0) rotate(0deg); }
+    75% { transform: translateY(-4px) rotate(-0.6deg); }
+  }
+  .animate-magnetic { animation: magnetic-float 7s ease-in-out infinite; }
+
+  /* neon ring sweep around photo */
+  .neon-ring {
+    position: absolute; inset: -14px; border-radius: 9999px; pointer-events: none;
+    background: conic-gradient(from 0deg, transparent 0 60%, var(--neon) 75%, var(--neon-2) 90%, transparent 100%);
+    -webkit-mask: radial-gradient(circle, transparent 58%, #000 60%);
+    mask: radial-gradient(circle, transparent 58%, #000 60%);
+    filter: blur(2px);
+  }
+
+  /* text reveal slide-up */
+  @keyframes reveal-up {
+    from { transform: translateY(40%); opacity: 0; clip-path: inset(0 0 100% 0); }
+    to { transform: translateY(0); opacity: 1; clip-path: inset(0 0 0 0); }
+  }
+  .animate-reveal { animation: reveal-up 1s cubic-bezier(.2,.8,.2,1) both; }
+
+  /* ripple ping (large) */
+  @keyframes mega-ping {
+    0% { transform: scale(0.9); opacity: 0.7; }
+    80%,100% { transform: scale(1.6); opacity: 0; }
+  }
+  .animate-mega-ping { animation: mega-ping 2.6s cubic-bezier(0,0,0.2,1) infinite; }
+
 }
