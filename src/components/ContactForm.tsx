@@ -32,7 +32,13 @@ export function ContactForm() {
     const subject = `Portfolio · message from ${name}`;
     const body = `Hi Parthi,\n\n${message}\n\n— ${name}\n${email}`;
     const url = gmailComposeUrl(CONTACT_EMAIL, subject, body);
-    window.open(url, "_blank", "noopener,noreferrer");
+    const a = document.createElement("a");
+    a.href = url;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
     setTimeout(() => setState("sent"), 500);
   };
 
