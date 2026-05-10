@@ -103,12 +103,6 @@ function Home() {
                 <span className="text-primary">$</span> npm run future
               </div>
             </div>
-            <a href={RESUME_URL} download
-               className="mt-6 group inline-flex items-center gap-2 px-4 py-2.5 rounded-full glass border border-primary/40 hover:border-primary text-sm hover:shadow-[0_0_25px_var(--neon)] transition gradient-border">
-              <FileText className="w-4 h-4 text-primary" />
-              <span>Download my Résumé</span>
-              <Download className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition" />
-            </a>
           </motion.div>
         </div>
       </section>
@@ -230,14 +224,15 @@ function Home() {
         <div className="grid md:grid-cols-5 gap-6">
           <div className="md:col-span-3 glass rounded-3xl p-8 md:p-10 gradient-border">
             <h3 className="text-2xl font-bold mb-1">Send me a message</h3>
-            <p className="text-sm text-muted-foreground mb-6">Opens your mail client pre-filled — I reply within 48h.</p>
+            <p className="text-sm text-muted-foreground mb-6">Composes in Gmail with your message pre-filled — I reply within 48h.</p>
             <ContactForm />
           </div>
           <div className="md:col-span-2 space-y-3">
             <QuickLink
-              href={`mailto:${CONTACT_EMAIL}`}
+              href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(CONTACT_EMAIL)}`}
+              external
               icon={<Mail className="w-5 h-5" />}
-              label="Email"
+              label="Email (Gmail)"
               value={CONTACT_EMAIL}
               accent="from-primary/30 to-primary/5"
             />
@@ -245,7 +240,7 @@ function Home() {
               href={LINKEDIN_URL} external
               icon={<Linkedin className="w-5 h-5" />}
               label="LinkedIn"
-              value="/in/parthi-gadher"
+              value="/in/parthi-gadher-79469a362"
               accent="from-sky-500/30 to-sky-500/5"
             />
             <QuickLink
@@ -267,7 +262,7 @@ function Home() {
       </Section>
 
       <footer className="relative z-10 border-t border-border/40 py-8 text-center text-xs text-muted-foreground font-mono">
-        <span className="text-primary">{"//"}</span> built with React, TanStack & a lot of caffeine · © {new Date().getFullYear()} Parthi Gadher
+        <span className="text-primary">{"//"}</span> Engineered with intent · Designed for the next decade of intelligent systems · © {new Date().getFullYear()} Parthi Gadher
       </footer>
     </div>
   );

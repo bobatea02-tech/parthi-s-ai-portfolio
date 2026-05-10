@@ -1,6 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { Github, Mail, Download } from "lucide-react";
-import { RESUME_URL, GITHUB_URL } from "@/lib/portfolio-data";
+import { RESUME_URL, GITHUB_URL, CONTACT_EMAIL } from "@/lib/portfolio-data";
+
+const GMAIL_COMPOSE = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(CONTACT_EMAIL)}`;
 
 export function SiteNav() {
   return (
@@ -27,7 +29,8 @@ export function SiteNav() {
              className="p-2 rounded-md hover:bg-secondary transition" aria-label="GitHub">
             <Github className="w-4 h-4" />
           </a>
-          <a href="/#contact" className="p-2 rounded-md hover:bg-secondary transition" aria-label="Email">
+          <a href={GMAIL_COMPOSE} target="_blank" rel="noopener noreferrer"
+             className="p-2 rounded-md hover:bg-secondary transition" aria-label="Email via Gmail">
             <Mail className="w-4 h-4" />
           </a>
         </div>
