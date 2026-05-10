@@ -1,8 +1,9 @@
 import { Link } from "@tanstack/react-router";
 import { Github, Mail, Download } from "lucide-react";
-import { RESUME_URL, GITHUB_URL, CONTACT_EMAIL } from "@/lib/portfolio-data";
+import { RESUME_URL, GITHUB_URL } from "@/lib/portfolio-data";
+import { gmailComposeUrl } from "@/lib/contact-links";
 
-const GMAIL_COMPOSE = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(CONTACT_EMAIL)}`;
+const GMAIL_COMPOSE = gmailComposeUrl();
 
 export function SiteNav() {
   return (
