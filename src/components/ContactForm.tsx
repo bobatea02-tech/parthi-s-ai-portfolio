@@ -1,6 +1,18 @@
 import { useState } from "react";
-import { Send, Loader2, Check } from "lucide-react";
+import { Send, Loader2, Check, ExternalLink } from "lucide-react";
 import { CONTACT_EMAIL } from "@/lib/portfolio-data";
+
+/** Builds a Gmail web-compose URL — opens Gmail in a new tab, never Outlook. */
+export function gmailComposeUrl(to: string, subject: string, body: string) {
+  const params = new URLSearchParams({
+    view: "cm",
+    fs: "1",
+    to,
+    su: subject,
+    body,
+  });
+  return `https://mail.google.com/mail/?${params.toString()}`;
+}
 
 export function ContactForm() {
   const [name, setName] = useState("");
@@ -17,11 +29,11 @@ export function ContactForm() {
     if (!message.trim() || message.length > 2000) return setErr("Message required (max 2000 chars).");
 
     setState("sending");
-    const subject = encodeURIComponent(`Portfolio · message from ${name}`);
-    const body = encodeURIComponent(`Hi Parthi,\n\n${message}\n\n— ${name}\n${email}`);
-    const url = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
-    window.location.href = url;
-    setTimeout(() => setState("sent"), 600);
+    const subject = `Portfolio · message from ${name}`;
+    const body = `Hi Parthi,\n\n${message}\n\n— ${name}\n${email}`;
+    const url = gmailComposeUrl(CONTACT_EMAIL, subject, body);
+    window.open(url, "_blank", "noopener,noreferrer");
+    setTimeout(() => setState("sent"), 500);
   };
 
   return (
@@ -49,7 +61,8 @@ export function ContactForm() {
         {state === "sending" ? <Loader2 className="w-4 h-4 animate-spin" />
           : state === "sent" ? <Check className="w-4 h-4" />
           : <Send className="w-4 h-4 group-hover:translate-x-0.5 transition" />}
-        {state === "sent" ? "Mail client opened" : "Send message"}
+        {state === "sent" ? "Opened in Gmail — hit send" : "Send via Gmail"}
+        {state === "idle" && <ExternalLink className="w-3.5 h-3.5 opacity-70" />}
       </button>
     </form>
   );
