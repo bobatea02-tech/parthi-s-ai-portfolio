@@ -14,6 +14,7 @@ import {
 import { SiteNav } from "@/components/SiteNav";
 import { ContactForm } from "@/components/ContactForm";
 import { InteractiveBackground } from "@/components/InteractiveBackground";
+import { gmailComposeUrl } from "@/lib/contact-links";
 import parthiPhoto from "@/assets/parthi.jpg";
 
 export const Route = createFileRoute("/")({
@@ -228,7 +229,7 @@ function Home() {
           </div>
           <div className="md:col-span-2 space-y-3">
             <QuickLink
-              href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(CONTACT_EMAIL)}`}
+              href={gmailComposeUrl()}
               external
               icon={<Mail className="w-5 h-5" />}
               label="Email (Gmail)"
