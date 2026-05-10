@@ -1,18 +1,7 @@
 import { useState } from "react";
 import { Send, Loader2, Check, ExternalLink } from "lucide-react";
 import { CONTACT_EMAIL } from "@/lib/portfolio-data";
-
-/** Builds a Gmail web-compose URL — opens Gmail in a new tab, never Outlook. */
-export function gmailComposeUrl(to: string, subject: string, body: string) {
-  const params = new URLSearchParams({
-    view: "cm",
-    fs: "1",
-    to,
-    su: subject,
-    body,
-  });
-  return `https://mail.google.com/mail/?${params.toString()}`;
-}
+import { GMAIL_ACTION } from "@/lib/contact-links";
 
 export function ContactForm() {
   const [name, setName] = useState("");
@@ -29,21 +18,20 @@ export function ContactForm() {
     if (!message.trim() || message.length > 2000) return setErr("Message required (max 2000 chars).");
 
     setState("sending");
-    const subject = `Portfolio · message from ${name}`;
-    const body = `Hi Parthi,\n\n${message}\n\n— ${name}\n${email}`;
-    const url = gmailComposeUrl(CONTACT_EMAIL, subject, body);
-    const a = document.createElement("a");
-    a.href = url;
-    a.target = "_blank";
-    a.rel = "noopener noreferrer";
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
     setTimeout(() => setState("sent"), 500);
   };
 
+  const subject = name.trim() ? `Portfolio · message from ${name.trim()}` : "Portfolio inquiry";
+  const body = `Hi Parthi,\n\n${message}\n\n— ${name}\n${email}`;
+
   return (
-    <form onSubmit={submit} className="space-y-4">
+    <form onSubmit={submit} action={GMAIL_ACTION} method="GET" target="_blank" rel="noopener noreferrer" className="space-y-4">
+      <input type="hidden" name="view" value="cm" />
+      <input type="hidden" name="fs" value="1" />
+      <input type="hidden" name="tf" value="1" />
+      <input type="hidden" name="to" value={CONTACT_EMAIL} />
+      <input type="hidden" name="su" value={subject} />
+      <input type="hidden" name="body" value={body} />
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
           <label className="text-xs font-mono text-muted-foreground">NAME</label>
