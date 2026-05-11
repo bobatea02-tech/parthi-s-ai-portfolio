@@ -124,24 +124,94 @@ export type Certificate = { name: string; issuer: string; file: string; year?: s
 
 const C = "/certificates/";
 export const certificates: Certificate[] = [
-  { name: "Generative AI Engineering Mastermind", issuer: "GenAI Mastermind", file: C + "Parthi_Gadher_GENAI ENGINEERING MASTERMIND.pdf" },
-  { name: "Oracle AI Foundation", issuer: "Oracle", file: C + "Oracle AI foundation Certificate.pdf" },
-  { name: "AI Fundamentals", issuer: "IBM SkillsBuild", file: C + "AI_Fundamentals_with_IBM_SkillsBuild_certificate_parthi-17884-sakec-ac-in_0299ecf0-f71b-417c-8062-35d243a70b3b.pdf" },
-  { name: "Apply AI: Analyze Customer Reviews", issuer: "IBM SkillsBuild", file: C + "Apply_AI-_Analyze_Customer_Reviews_certificate_parthi-17884-sakec-ac-in_630342ac-171f-4a3a-8bcf-e45249b74c48.pdf" },
-  { name: "Introduction to Modern AI", issuer: "IBM SkillsBuild", file: C + "Introduction_to_Modern_AI_certificate_parthi-17884-sakec-ac-in_4d540de7-e00c-4702-b2d6-017903d586b5.pdf" },
-  { name: "Cybersecurity Essentials", issuer: "Cisco", file: C + "Cybersecurity_Essentials_certificate_parthi-17884-sakec-ac-in_66a9a251-0aa2-493d-9e2f-049a72225da7.pdf" },
-  { name: "Networking Basics", issuer: "Cisco", file: C + "Networking_Basics_certificate_parthi-17884-sakec-ac-in_356d1182-4dd0-4349-b121-4f0cc74950b8.pdf" },
-  { name: "Programming Essentials in C (CLA)", issuer: "Cisco / OpenEDG", file: C + "Partner-_CLA_-_Programming_Essentials_in_C_certificate_parthi-17884-sakec-ac-in_04508687-555b-4da2-9406-bec10e71f0e6.pdf" },
-  { name: "AI-ML Virtual Internship", issuer: "AICTE / EduSkills", file: C + "AI-ML Virtual Internship.pdf" },
+  {
+    name: "Generative AI Engineering Mastermind",
+    issuer: "GenAI Mastermind",
+    file: C + "Parthi_Gadher_GENAI ENGINEERING MASTERMIND.pdf",
+  },
+  {
+    name: "Oracle AI Foundation",
+    issuer: "Oracle",
+    file: C + "Oracle AI foundation Certificate.pdf",
+  },
+  {
+    name: "AI Fundamentals",
+    issuer: "IBM SkillsBuild",
+    file:
+      C +
+      "AI_Fundamentals_with_IBM_SkillsBuild_certificate_parthi-17884-sakec-ac-in_0299ecf0-f71b-417c-8062-35d243a70b3b.pdf",
+  },
+  {
+    name: "Apply AI: Analyze Customer Reviews",
+    issuer: "IBM SkillsBuild",
+    file:
+      C +
+      "Apply_AI-_Analyze_Customer_Reviews_certificate_parthi-17884-sakec-ac-in_630342ac-171f-4a3a-8bcf-e45249b74c48.pdf",
+  },
+  {
+    name: "Introduction to Modern AI",
+    issuer: "IBM SkillsBuild",
+    file:
+      C +
+      "Introduction_to_Modern_AI_certificate_parthi-17884-sakec-ac-in_4d540de7-e00c-4702-b2d6-017903d586b5.pdf",
+  },
+  {
+    name: "Cybersecurity Essentials",
+    issuer: "Cisco",
+    file:
+      C +
+      "Cybersecurity_Essentials_certificate_parthi-17884-sakec-ac-in_66a9a251-0aa2-493d-9e2f-049a72225da7.pdf",
+  },
+  {
+    name: "Networking Basics",
+    issuer: "Cisco",
+    file:
+      C +
+      "Networking_Basics_certificate_parthi-17884-sakec-ac-in_356d1182-4dd0-4349-b121-4f0cc74950b8.pdf",
+  },
+  {
+    name: "Programming Essentials in C (CLA)",
+    issuer: "Cisco / OpenEDG",
+    file:
+      C +
+      "Partner-_CLA_-_Programming_Essentials_in_C_certificate_parthi-17884-sakec-ac-in_04508687-555b-4da2-9406-bec10e71f0e6.pdf",
+  },
+  {
+    name: "AI-ML Virtual Internship",
+    issuer: "AICTE / EduSkills",
+    file: C + "AI-ML Virtual Internship.pdf",
+  },
   { name: "React Bootcamp", issuer: "Bootcamp", file: C + "React Bootcamp certificate.pdf" },
   { name: "Generative AI Workshop", issuer: "Workshop", file: C + "GnerativeAI certificate.pdf" },
-  { name: "Aptitude, Soft & Technical Skills Program", issuer: "SAKEC", file: C + "Aptitude, Soft skills and Technical Skill Employability Enhancing Program Certificate.pdf" },
-  { name: "Hackathon Participant", issuer: "Hackathon", file: C + "PARTHI-GADHER-Participant-Certificate.pdf" },
-  { name: "Hackathon Participant II", issuer: "Hackathon", file: C + "PARTHI-GADHER-Participant-Certificate(1).pdf" },
-  { name: "Hackathon Participant III", issuer: "Hackathon", file: C + "PARTHI-GADHER-Participant-Certificate(2).pdf" },
-  { name: "Hackathon Participant IV", issuer: "Hackathon", file: C + "PARTHI-GADHER-Participant-Certificate(3).pdf" },
-  { name: "Achievement", issuer: "Recognition", file: C + "Parthi Gadher.pdf" },
-  { name: "Achievement (Honors)", issuer: "Recognition", file: C + "Parthi Gadher .pdf" },
+  {
+    name: "Aptitude, Soft & Technical Skills Program",
+    issuer: "SAKEC",
+    file:
+      C +
+      "Aptitude, Soft skills and Technical Skill Employability Enhancing Program Certificate.pdf",
+  },
+  {
+    name: "JavaScript Training",
+    issuer: "EduPyramids / IIT Bombay",
+    file: C + "PARTHI-GADHER-Participant-Certificate.pdf",
+  },
+  {
+    name: "Java Training",
+    issuer: "Spoken Tutorial / IIT Bombay",
+    file: C + "PARTHI-GADHER-Participant-Certificate(1).pdf",
+  },
+  {
+    name: "C Training",
+    issuer: "Spoken Tutorial / IIT Bombay",
+    file: C + "PARTHI-GADHER-Participant-Certificate(2).pdf",
+  },
+  {
+    name: "Python 3.4.3 Training",
+    issuer: "Spoken Tutorial / IIT Bombay",
+    file: C + "PARTHI-GADHER-Participant-Certificate(3).pdf",
+  },
+  { name: "Google Cloud Arcade", issuer: "Google Cloud", file: C + "Parthi Gadher.pdf" },
+  { name: "Power Bootcamp", issuer: "Floydee Future Foundation", file: C + "Parthi Gadher .pdf" },
 ];
 
 export const CERT_DRIVE =
@@ -153,16 +223,53 @@ export const LINKEDIN_URL = "https://www.linkedin.com/in/parthi-gadher-79469a362
 export const GITHUB_URL = "https://github.com/bobatea02-tech";
 
 export const skills = [
-  { category: "AI / ML", level: 92, items: ["Gemini", "LLM Pipelines", "RAG", "Prompt Engineering", "Context Pruning", "Scikit-learn", "Vector DBs"] },
-  { category: "Languages", level: 88, items: ["Python", "TypeScript", "JavaScript", "C", "Java", "SQL"] },
-  { category: "Frontend", level: 85, items: ["React", "TanStack", "Next.js", "Tailwind", "Framer Motion", "Vite"] },
-  { category: "Backend", level: 82, items: ["FastAPI", "Node.js", "REST", "WebSockets", "Docker", "Auth"] },
-  { category: "Data & Cloud", level: 78, items: ["PostgreSQL", "Supabase", "Vercel", "Render", "Cloudflare", "OpenWeather API"] },
-  { category: "Tools", level: 86, items: ["Git", "GitHub Actions", "Postman", "Figma", "VS Code", "Linux"] },
+  {
+    category: "AI / ML",
+    level: 92,
+    items: [
+      "Gemini",
+      "LLM Pipelines",
+      "RAG",
+      "Prompt Engineering",
+      "Context Pruning",
+      "Scikit-learn",
+      "Vector DBs",
+    ],
+  },
+  {
+    category: "Languages",
+    level: 88,
+    items: ["Python", "TypeScript", "JavaScript", "C", "Java", "SQL"],
+  },
+  {
+    category: "Frontend",
+    level: 85,
+    items: ["React", "TanStack", "Next.js", "Tailwind", "Framer Motion", "Vite"],
+  },
+  {
+    category: "Backend",
+    level: 82,
+    items: ["FastAPI", "Node.js", "REST", "WebSockets", "Docker", "Auth"],
+  },
+  {
+    category: "Data & Cloud",
+    level: 78,
+    items: ["PostgreSQL", "Supabase", "Vercel", "Render", "Cloudflare", "OpenWeather API"],
+  },
+  {
+    category: "Tools",
+    level: 86,
+    items: ["Git", "GitHub Actions", "Postman", "Figma", "VS Code", "Linux"],
+  },
 ];
 
 export const timeline = [
-  { year: "2023 – Present", title: "B.Tech in AI & Data Science", org: "Shah and Anchor Kutchhi Engineering College", detail: "CGPA 8.64 · Building AI products end-to-end" },
+  {
+    year: "2023 – Present",
+    title: "B.Tech in AI & Data Science",
+    org: "Shah and Anchor Kutchhi Engineering College",
+    detail: "CGPA 8.64 · Building AI products end-to-end",
+  },
   { year: "2023", title: "HSC — Science (PCM)", org: "Maharashtra Board", detail: "70%" },
   { year: "2021", title: "SSC", org: "Maharashtra Board", detail: "88%" },
 ];
