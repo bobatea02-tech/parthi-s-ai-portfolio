@@ -2,8 +2,7 @@ import { useState, type FormEvent } from "react";
 import { Send, Loader2, Check, ExternalLink } from "lucide-react";
 import { toast } from "sonner";
 import { z } from "zod";
-import { CONTACT_EMAIL } from "@/lib/portfolio-data";
-import { gmailComposeUrl } from "@/lib/contact-links";
+import { openGmailCompose, mailtoUrl } from "@/lib/contact-links";
 
 const MESSAGE_LIMIT = 2000;
 
@@ -48,17 +47,22 @@ export function ContactForm() {
     if (website.trim()) return;
     if (!parsed.success) return setErr(parsed.error.issues[0]?.message ?? "Please check the form.");
 
-    const gmailUrl = gmailComposeUrl(subject, body);
     setState("sending");
-    toast.success("Gmail draft is opening", {
-      description: "Your recipient, subject, and message are pre-filled. Review it and hit send.",
-    });
+    const opened = openGmailCompose(subject, body);
     setState("sent");
 
-    try {
-      window.top?.location.assign(gmailUrl);
-    } catch {
-      window.location.assign(gmailUrl);
+    if (opened === "gmail") {
+      toast.success("Gmail draft opened in a new tab", {
+        description: "Your recipient, subject, and message are pre-filled. Review it and hit send.",
+        action: {
+          label: "Use mail app",
+          onClick: () => window.location.assign(mailtoUrl(subject, body)),
+        },
+      });
+    } else {
+      toast.message("Opened your default mail app", {
+        description: "Popup was blocked, so we used mailto instead.",
+      });
     }
   };
 
