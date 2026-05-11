@@ -52,7 +52,7 @@ export function SiteNav() {
           </a>
           <a
             href={GMAIL_COMPOSE}
-            target="_blank"
+            target="_top"
             rel="noopener noreferrer"
             className="p-2 rounded-md hover:bg-secondary transition"
             aria-label="Email via Gmail"
