@@ -136,12 +136,12 @@ export const certificates: Certificate[] = [
   { name: "React Bootcamp", issuer: "Bootcamp", file: C + "React Bootcamp certificate.pdf" },
   { name: "Generative AI Workshop", issuer: "Workshop", file: C + "GnerativeAI certificate.pdf" },
   { name: "Aptitude, Soft & Technical Skills Program", issuer: "SAKEC", file: C + "Aptitude, Soft skills and Technical Skill Employability Enhancing Program Certificate.pdf" },
-  { name: "Hackathon Participant", issuer: "Hackathon", file: C + "PARTHI-GADHER-Participant-Certificate.pdf" },
-  { name: "Hackathon Participant II", issuer: "Hackathon", file: C + "PARTHI-GADHER-Participant-Certificate(1).pdf" },
-  { name: "Hackathon Participant III", issuer: "Hackathon", file: C + "PARTHI-GADHER-Participant-Certificate(2).pdf" },
-  { name: "Hackathon Participant IV", issuer: "Hackathon", file: C + "PARTHI-GADHER-Participant-Certificate(3).pdf" },
-  { name: "Achievement", issuer: "Recognition", file: C + "Parthi Gadher.pdf" },
-  { name: "Achievement (Honors)", issuer: "Recognition", file: C + "Parthi Gadher .pdf" },
+  { name: "JavaScript Training", issuer: "EduPyramids / IIT Bombay", file: C + "PARTHI-GADHER-Participant-Certificate.pdf" },
+  { name: "Java Training", issuer: "Spoken Tutorial / IIT Bombay", file: C + "PARTHI-GADHER-Participant-Certificate(1).pdf" },
+  { name: "C Training", issuer: "Spoken Tutorial / IIT Bombay", file: C + "PARTHI-GADHER-Participant-Certificate(2).pdf" },
+  { name: "Python 3.4.3 Training", issuer: "Spoken Tutorial / IIT Bombay", file: C + "PARTHI-GADHER-Participant-Certificate(3).pdf" },
+  { name: "Google Cloud Arcade", issuer: "Google Cloud", file: C + "Parthi Gadher.pdf" },
+  { name: "Power Bootcamp", issuer: "Floydee Future Foundation", file: C + "Parthi Gadher .pdf" },
 ];
 
 export const CERT_DRIVE =
