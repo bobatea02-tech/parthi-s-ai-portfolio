@@ -323,7 +323,7 @@ function Home() {
           <div className="md:col-span-2 space-y-3">
             <QuickLink
               href={gmailComposeUrl()}
-              external
+              topLevel
               icon={<Mail className="w-5 h-5" />}
               label="Email (Gmail)"
               value={CONTACT_EMAIL}
@@ -542,6 +542,7 @@ function QuickLink({
   value,
   accent,
   external,
+  topLevel,
   download,
 }: {
   href: string;
@@ -550,12 +551,17 @@ function QuickLink({
   value: string;
   accent: string;
   external?: boolean;
+  topLevel?: boolean;
   download?: boolean;
 }) {
   return (
     <a
       href={href}
-      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+      {...(topLevel
+        ? { target: "_top", rel: "noopener noreferrer" }
+        : external
+          ? { target: "_blank", rel: "noopener noreferrer" }
+          : {})}
       {...(download ? { download: true } : {})}
       className="group block relative glass rounded-2xl p-5 hover:border-primary/40 transition tilt-card gradient-border overflow-hidden"
     >
