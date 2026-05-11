@@ -2,8 +2,7 @@ import { useState, type FormEvent } from "react";
 import { Send, Loader2, Check, ExternalLink } from "lucide-react";
 import { toast } from "sonner";
 import { z } from "zod";
-import { CONTACT_EMAIL } from "@/lib/portfolio-data";
-import { gmailComposeUrl } from "@/lib/contact-links";
+import { openGmailCompose, mailtoUrl } from "@/lib/contact-links";
 
 const MESSAGE_LIMIT = 2000;
 
