@@ -1,9 +1,9 @@
-import { useEffect, useState, type FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import { Send, Loader2, Check, ExternalLink } from "lucide-react";
 import { toast } from "sonner";
 import { z } from "zod";
 import { CONTACT_EMAIL } from "@/lib/portfolio-data";
-import { GMAIL_ACTION } from "@/lib/contact-links";
+import { gmailComposeUrl } from "@/lib/contact-links";
 
 const MESSAGE_LIMIT = 2000;
 
@@ -18,17 +18,8 @@ export function ContactForm() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [website, setWebsite] = useState("");
-  const [formTarget, setFormTarget] = useState<"_blank" | "_top">("_blank");
   const [state, setState] = useState<"idle" | "sending" | "sent">("idle");
   const [err, setErr] = useState<string | null>(null);
-
-  useEffect(() => {
-    try {
-      setFormTarget(window.self !== window.top ? "_top" : "_blank");
-    } catch {
-      setFormTarget("_top");
-    }
-  }, []);
 
   const parsed = contactSchema.safeParse({ name, email, message });
   const trimmedName = name.trim();
@@ -45,32 +36,25 @@ export function ContactForm() {
     if (website.trim()) return;
     if (!parsed.success) return setErr(parsed.error.issues[0]?.message ?? "Please check the form.");
 
-    const form = e.currentTarget;
+    const gmailUrl = gmailComposeUrl(subject, body);
     setState("sending");
     toast.success("Gmail draft is opening", {
       description: "Your recipient, subject, and message are pre-filled. Review it and hit send.",
     });
-    setTimeout(() => {
-      form.submit();
-      setState("sent");
-    }, 100);
+    setState("sent");
+
+    try {
+      window.top?.location.assign(gmailUrl);
+    } catch {
+      window.location.assign(gmailUrl);
+    }
   };
 
   return (
     <form
       onSubmit={submit}
-      action={GMAIL_ACTION}
-      method="GET"
-      target={formTarget}
-      rel="noopener noreferrer"
       className="space-y-4"
     >
-      <input type="hidden" name="view" value="cm" />
-      <input type="hidden" name="fs" value="1" />
-      <input type="hidden" name="tf" value="1" />
-      <input type="hidden" name="to" value={CONTACT_EMAIL} />
-      <input type="hidden" name="su" value={subject} />
-      <input type="hidden" name="body" value={body} />
       <div aria-hidden="true" className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden">
         <label htmlFor="contact-website">Website</label>
         <input
