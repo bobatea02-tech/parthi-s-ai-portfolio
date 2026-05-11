@@ -8,9 +8,21 @@ import { gmailComposeUrl } from "@/lib/contact-links";
 const MESSAGE_LIMIT = 2000;
 
 const contactSchema = z.object({
-  name: z.string().trim().min(1, "Name is required.").max(100, "Name must be under 100 characters."),
-  email: z.string().trim().email("Enter a valid email address.").max(255, "Email must be under 255 characters."),
-  message: z.string().trim().min(1, "Message is required.").max(MESSAGE_LIMIT, `Message must be under ${MESSAGE_LIMIT} characters.`),
+  name: z
+    .string()
+    .trim()
+    .min(1, "Name is required.")
+    .max(100, "Name must be under 100 characters."),
+  email: z
+    .string()
+    .trim()
+    .email("Enter a valid email address.")
+    .max(255, "Email must be under 255 characters."),
+  message: z
+    .string()
+    .trim()
+    .min(1, "Message is required.")
+    .max(MESSAGE_LIMIT, `Message must be under ${MESSAGE_LIMIT} characters.`),
 });
 
 export function ContactForm() {
@@ -51,11 +63,11 @@ export function ContactForm() {
   };
 
   return (
-    <form
-      onSubmit={submit}
-      className="space-y-4"
-    >
-      <div aria-hidden="true" className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden">
+    <form onSubmit={submit} className="space-y-4">
+      <div
+        aria-hidden="true"
+        className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden"
+      >
         <label htmlFor="contact-website">Website</label>
         <input
           id="contact-website"
@@ -97,7 +109,9 @@ export function ContactForm() {
           className="mt-1 w-full rounded-md bg-secondary/40 border border-border px-3 py-2 text-sm focus:outline-none focus:border-primary transition resize-none"
         />
         <div className="mt-1 flex justify-end">
-          <span className={`text-[11px] font-mono ${messageTooLong ? "text-destructive" : "text-muted-foreground"}`}>
+          <span
+            className={`text-[11px] font-mono ${messageTooLong ? "text-destructive" : "text-muted-foreground"}`}
+          >
             {message.length}/{MESSAGE_LIMIT}
           </span>
         </div>
