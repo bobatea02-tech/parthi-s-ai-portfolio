@@ -45,12 +45,13 @@ export function ContactForm() {
     if (website.trim()) return;
     if (!parsed.success) return setErr(parsed.error.issues[0]?.message ?? "Please check the form.");
 
+    const form = e.currentTarget;
     setState("sending");
     toast.success("Gmail draft is opening", {
       description: "Your recipient, subject, and message are pre-filled. Review it and hit send.",
     });
     setTimeout(() => {
-      e.currentTarget.submit();
+      form.submit();
       setState("sent");
     }, 100);
   };
